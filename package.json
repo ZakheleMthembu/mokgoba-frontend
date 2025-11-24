@@ -1,17 +1,17 @@
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "serve -s dist -l $PORT"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+
+  server: {
+    port: process.env.PORT || 5173,
+    host: true
   },
-  "dependencies": {
-    "@vitejs/plugin-react": "^4.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "serve": "^14.2.1"
+
+  preview: {
+    port: process.env.PORT || 5173,
+    host: true,
+    allowedHosts: ['mokgoba-frontend.onrender.com']
   }
-}
+})
